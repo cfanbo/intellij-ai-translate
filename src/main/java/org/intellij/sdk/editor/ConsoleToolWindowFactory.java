@@ -8,7 +8,7 @@ import com.intellij.ui.content.ContentManager;
 import com.intellij.execution.impl.ConsoleViewImpl;
 import com.intellij.execution.ui.ConsoleView;
 
-public class AiTranslateConsoleToolWindowFactory implements ToolWindowFactory {
+public class ConsoleToolWindowFactory implements ToolWindowFactory {
     @Override
     public void createToolWindowContent(Project project, ToolWindow toolWindow) {
         // 创建 ConsoleView

@@ -41,7 +41,7 @@ final class AppSettingsConfigurable implements Configurable {
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         return !mySettingsComponent.getAppId().equals(state.appId) ||
-                mySettingsComponent.getAppKey().equals(state.appKey);
+                !mySettingsComponent.getAppKey().equals(state.appKey);
     }
 
     @Override

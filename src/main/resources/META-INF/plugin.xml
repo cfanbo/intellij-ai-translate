@@ -15,8 +15,8 @@
   <!-- Text to display as description on Settings | Plugin page -->
   <description>
     <![CDATA[
-    这是一款基于LLM的编程开发者翻译助手.<br>帮助开发人员快速将英文注释翻译成中文，且保持软件开发专业术语语义. <br>
-    选择注释段落，按 Ctrl+Alt+T 即可翻译.<br>
+    这是一款基于LLM的编程开发者翻译助手.<br>帮助开发人员快速将英文翻译成中文，且保持软件开发专业术语语义. <br>
+    选择英文注释段落，按 Ctrl+Alt+T 即可翻译.<br>
     使用前，需要配置大模型“通义千问”应用的 AppId 和 AppKey.<br> <a href="https://github.com/cfanbo/intellij-ai-translate">访问项目主页</a>
   ]]>
   </description>
@@ -43,8 +43,6 @@
   </actions>
 
   <extensions defaultExtensionNs="com.intellij">
-<!--    <typedHandler implementation="org.intellij.sdk.editor.MyTypedHandler"/>-->
-    <!-- ToolWindowFactory definition -->
     <toolWindow
             id="AiTranslate"
             anchor="bottom"

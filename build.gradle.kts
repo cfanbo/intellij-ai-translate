@@ -17,7 +17,7 @@ java {
 }
 
 dependencies {
-  implementation("com.alibaba:dashscope-sdk-java:2.16.3")
+  implementation("com.alibaba:dashscope-sdk-java:2.16.4")
 }
 
 // See https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html

@@ -3,6 +3,7 @@
 <div style="text-align: center;">
     <img src="https://plugins.jetbrains.com/files/25313/602650/icon/pluginIcon.svg" alt="AI Translate" />
 </div>
+
 ![Build](https://github.com/cfanbo/intellij-ai-translate/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/25313.svg)](https://plugins.jetbrains.com/plugin/25313)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/25313.svg)](https://plugins.jetbrains.com/plugin/25313)

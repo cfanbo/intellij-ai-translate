@@ -55,7 +55,7 @@ public class TranslateIllustrationAction extends AnAction {
 //    int start = primaryCaret.getSelectionStart();
 //    int end = primaryCaret.getSelectionEnd();
 
-    String resultStr = "";
+    var resultStr = "";
     LlmService llm = LlmService.getInstance();
     try {
       String input = primaryCaret.getSelectedText();

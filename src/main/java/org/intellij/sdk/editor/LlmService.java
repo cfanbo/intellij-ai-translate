@@ -4,7 +4,6 @@ import com.alibaba.dashscope.app.*;
 import com.alibaba.dashscope.exception.ApiException;
 import com.alibaba.dashscope.exception.InputRequiredException;
 import com.alibaba.dashscope.exception.NoApiKeyException;
-import com.intellij.openapi.application.ApplicationManager;
 import org.intellij.sdk.editor.settings.AppSettings;
 
 public class LlmService {

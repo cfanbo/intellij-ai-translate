@@ -18,7 +18,7 @@
     This is an intelligent translation assistant for software developers, powered by Large Language Model (LLM) technology. It is designed to quickly and accurately convert English text into Chinese, while precisely preserving the professional terminology and semantics of the software development field.
     Usage: just select the English comment block and press Ctrl+Alt+T to obtain the translation.
     Before use, you need to configure the application AppId and AppKey for the "Tongyi Qianwen" large-scale model.
-    For more information or support, please visit our project homepage: https://github.com/cfanbo/intellij-ai-translate
+    For more information or support, please visit our project homepage: https://github.com/cfanbo/intellij-ai-translate<br>
 
     这是一款基于LLM的编程开发者翻译助手, 旨在帮助开发人员快速将英文翻译成中文，且保持软件开发专业术语语义.
     选择英文注释段落，按 Ctrl+Alt+T 即可翻译.
@@ -35,7 +35,7 @@
   </change-notes>
 
   <!-- Text to display as company information on Settings | Plugin page -->
-  <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK</vendor>
+  <vendor email="haohtml@gmail.com" url="https://github.com/cfanbo/intellij-ai-translate">cfabno</vendor>
 
   <actions>
     <action id="EditorBasics.EditorIllustrationAction"

@@ -19,8 +19,8 @@ public final class AppSettings
 
     public static class State {
         @NonNls
-        public String appId = "appId";
-        public String appKey = "appKey";
+        public String appId = "";
+        public String appKey = "";
     }
 
     private State myState = new State();

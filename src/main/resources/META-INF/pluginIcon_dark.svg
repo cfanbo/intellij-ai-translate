@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="81" height="80" viewBox="0 0 81 80">
+  <defs>
+    <linearGradient id="pluginsdk_80-a" x1="-.031%" x2="100.053%" y1="49.963%" y2="49.963%">
+      <stop offset="25.81%" stop-color="#F97A12"/>
+      <stop offset="45.91%" stop-color="#B07B58"/>
+      <stop offset="72.41%" stop-color="#577BAE"/>
+      <stop offset="91.05%" stop-color="#1E7CE5"/>
+      <stop offset="100%" stop-color="#087CFA"/>
+    </linearGradient>
+    <linearGradient id="pluginsdk_80-b" x1="27.55%" x2="82.223%" y1="34.514%" y2="77.605%">
+      <stop offset="0%" stop-color="#F97A12"/>
+      <stop offset="7.18%" stop-color="#CB7A3E"/>
+      <stop offset="15.41%" stop-color="#9E7B6A"/>
+      <stop offset="24.2%" stop-color="#757B91"/>
+      <stop offset="33.44%" stop-color="#537BB1"/>
+      <stop offset="43.24%" stop-color="#387CCC"/>
+      <stop offset="53.81%" stop-color="#237CE0"/>
+      <stop offset="65.52%" stop-color="#147CEF"/>
+      <stop offset="79.25%" stop-color="#0B7CF7"/>
+      <stop offset="100%" stop-color="#087CFA"/>
+    </linearGradient>
+    <linearGradient id="pluginsdk_80-c" x1="63.121%" x2="40.793%" y1="97.699%" y2="-6.587%">
+      <stop offset="0%" stop-color="#FE315D"/>
+      <stop offset="7.84%" stop-color="#CB417E"/>
+      <stop offset="16.01%" stop-color="#9E4E9B"/>
+      <stop offset="24.74%" stop-color="#755BB4"/>
+      <stop offset="33.92%" stop-color="#5365CA"/>
+      <stop offset="43.65%" stop-color="#386DDB"/>
+      <stop offset="54.14%" stop-color="#2374E9"/>
+      <stop offset="65.76%" stop-color="#1478F3"/>
+      <stop offset="79.4%" stop-color="#0B7BF8"/>
+      <stop offset="100%" stop-color="#087CFA"/>
+    </linearGradient>
+    <linearGradient id="pluginsdk_80-d" x1="25.331%" x2="93.854%" y1="24.119%" y2="132.621%">
+      <stop offset="0%" stop-color="#FE315D"/>
+      <stop offset="4.023%" stop-color="#F63462"/>
+      <stop offset="10.37%" stop-color="#DF3A71"/>
+      <stop offset="16.67%" stop-color="#C24383"/>
+      <stop offset="29.12%" stop-color="#AD4A91"/>
+      <stop offset="54.98%" stop-color="#755BB4"/>
+      <stop offset="91.75%" stop-color="#1D76ED"/>
+      <stop offset="100%" stop-color="#087CFA"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g fill-rule="nonzero" transform="translate(8 8)">
+      <path fill="url(#pluginsdk_80-a)" d="M6.08754566,64 L2.66453526e-15,59.1000946 L0,26.7918961 L30,38.6703369 L10.1403967,64 L6.08754566,64 Z"/>
+      <path fill="url(#pluginsdk_80-b)" d="M20.9524706,64 L52.2740919,31.9159091 L37.6708832,0.460194805 L38.0580944,1.33226763e-15 L64,0 L64,64 L20.9524706,64 Z"/>
+      <path fill="url(#pluginsdk_80-c)" d="M34.4123783,0 L64,0 L64,28.0366227 L49.0078336,44 L34,0.44696173 L34.4123783,0 Z"/>
+      <path fill="url(#pluginsdk_80-d)" d="M30.3358775,64 L0,64 L0,49.9709549 L6.23437817,29.2830519 L0,27.1596093 L0,0 L39.4697238,0 L58,21.3844805 L30.5381317,63.9259091 L30.3358775,64 Z"/>
+    </g>
+    <g fill-rule="nonzero" transform="translate(12 12)">
+      <!-- 添加字母 T -->
+      <text x="12" y="46" font-family="Arial" font-size="50" fill="#FFFEFE">T</text>
+    </g>
+  </g>
+</svg>

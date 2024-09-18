@@ -31,14 +31,13 @@
   </change-notes>
 
   <!-- Text to display as company information on Settings | Plugin page -->
-  <vendor email="haohtml@gmail.com" url="https://github.com/cfanbo/intellij-ai-translate">cfabno</vendor>
+  <vendor email="haohtml@gmail.com" url="https://github.com/cfanbo/intellij-ai-translate">cfanbo</vendor>
 
   <actions>
     <action id="EditorBasics.EditorIllustrationAction"
             class="org.intellij.sdk.editor.TranslateIllustrationAction"
             text="AI 翻译"
-            description="AI 翻译"
-            icon="SdkIcons.Sdk_default_icon">
+            description="AI 翻译">
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt T"/>
     </action>

@@ -18,6 +18,10 @@ import com.intellij.execution.ui.ConsoleView;
 import org.intellij.sdk.editor.settings.AppSettings;
 import com.intellij.openapi.options.ShowSettingsUtil;
 import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.actionSystem.Presentation;
+import com.intellij.openapi.util.IconLoader;
+import com.intellij.ui.JBColor;
+
 /**
  * Menu action to replace a selection of characters with a fixed string.
  */
@@ -121,6 +125,16 @@ public class TranslateIllustrationAction extends AnAction {
    */
   @Override
   public void update(@NotNull final AnActionEvent e) {
+    // 动态设置不同主题下的图标
+    Presentation presentation = e.getPresentation();
+    if (JBColor.isBright()) {
+      // 如果是亮色主题
+      presentation.setIcon(IconLoader.getIcon("/icons/icon_light.svg", getClass()));
+    } else {
+      // 如果是暗色主题
+      presentation.setIcon(IconLoader.getIcon("/icons/icon_dark.svg", getClass()));
+    }
+
     // Get required data keys
     final Project project = e.getProject();
     final Editor editor = e.getData(CommonDataKeys.EDITOR);

@@ -81,7 +81,7 @@ public class TranslateIllustrationAction extends AnAction {
     // 如果用户选择“是”，打开设置页面
     if (result == Messages.YES) {
       // 打开插件的设置页面
-      ShowSettingsUtil.getInstance().showSettingsDialog(project, "AiTranslate Setting");
+      ShowSettingsUtil.getInstance().showSettingsDialog(project, "AI Translate");
     }
   }
 

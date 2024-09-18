@@ -21,7 +21,7 @@ final class AppSettingsConfigurable implements Configurable {
     @Nls(capitalization = Nls.Capitalization.Title)
     @Override
     public String getDisplayName() {
-        return "AI Translate";
+        return "AiTranslate";
     }
 
     @Override

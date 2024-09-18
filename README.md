@@ -16,8 +16,9 @@
 
 选择英文注释段落，按 Ctrl+Alt+T 即可翻译，也可以选择要翻译的段落，右键选择“AI 翻译“ 菜单翻译。
 
-使用插件前，需要配置Alibaba 大模型 `通义千问` 应用的 AppId 和 AppKey。访问 https://bailian.console.aliyun.com/， 点击左侧栏菜单 ”我的应用“即可看到应用信息。
+使用插件前，需要配置Alibaba 大模型 `通义千问` 应用 AppId 和 AppKey。访问 https://bailian.console.aliyun.com/， 点击左侧栏菜单 ”我的应用“即可看到应用信息。
 
+访问项目主页：https://github.com/cfanbo/intellij-ai-translate<br/>
 <!-- Plugin description end -->
 
 ## 安装插件 

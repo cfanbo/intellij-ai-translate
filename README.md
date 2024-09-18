@@ -78,7 +78,7 @@ ${documents}
 
 ### 3. 在IDE里配置 AI Translate
 
-在IDE里配置 AI Translate，点击菜单栏 `File` -> `Settings` -> `AI Translate`，填写上面获取的应用 AppId 和 AppKey。
+在IDE里配置 AI Translate，点击菜单栏 `File` -> `Settings` -> `Tools` -> `AI Translate`，填写上面获取的应用 AppId 和 AppKey。
 ![img.png](static/image/tongyi-appid-appkey.png)
 
 ### 4. 测试

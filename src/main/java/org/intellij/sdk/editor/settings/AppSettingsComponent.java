@@ -79,20 +79,20 @@ public class AppSettingsComponent {
 
     @NotNull
     public String getAppId() {
-        return appId.getText();
+        return appId.getText().trim();
     }
 
     public void setAppId(@NotNull String newText) {
-        appId.setText(newText);
+        appId.setText(newText.trim());
     }
 
     @NotNull
     public String getAppKey() {
-        return appKey.getText();
+        return appKey.getText().trim();
     }
 
     public void setAppKey(@NotNull String newText) {
-        appKey.setText(newText);
+        appKey.setText(newText.trim());
     }
 
 }

@@ -12,7 +12,7 @@
   <!-- Product and plugin compatibility requirements -->
   <depends>com.intellij.modules.platform</depends>
 
-  <idea-version since-build="202" until-build="*"/>
+  <idea-version since-build="202"/>
 
   <!-- Text to display as description on Settings | Plugin page -->
   <description>

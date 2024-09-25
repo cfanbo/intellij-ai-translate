@@ -18,9 +18,14 @@ public final class AppSettings
         implements PersistentStateComponent<AppSettings.State> {
 
     public static class State {
+
         @NonNls
+        public String provider = "";
         public String appId = "";
         public String appKey = "";
+
+        public String cozeBotID = "";
+        public String cozeToken = "";
     }
 
     private State myState = new State();

@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 final class AppSettingsConfigurable implements Configurable {
 
-    private AppSettingsComponent mySettingsComponent;
+    private AppSettingsComponent appSettingsComponent;
 
     // A default constructor with no arguments is required because
     // this implementation is registered as an applicationConfigurable
@@ -26,43 +26,54 @@ final class AppSettingsConfigurable implements Configurable {
 
     @Override
     public JComponent getPreferredFocusedComponent() {
-        return mySettingsComponent.getPreferredFocusedComponent();
+        return appSettingsComponent.getPreferredFocusedComponent();
     }
 
     @Nullable
     @Override
     public JComponent createComponent() {
-        mySettingsComponent = new AppSettingsComponent();
-        return mySettingsComponent.getPanel();
+        appSettingsComponent = new AppSettingsComponent();
+        return appSettingsComponent.getPanel();
     }
 
     @Override
     public boolean isModified() {
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
-        return !mySettingsComponent.getAppId().equals(state.appId) ||
-                !mySettingsComponent.getAppKey().equals(state.appKey);
+        return !appSettingsComponent.getProvider().equals(state.provider) ||
+                !appSettingsComponent.getAppId().equals(state.appId) ||
+                !appSettingsComponent.getAppKey().equals(state.appKey) ||
+                !appSettingsComponent.getCozeToken().equals(state.cozeToken) ||
+                !appSettingsComponent.getCozeBotID().equals(state.cozeBotID);
     }
 
     @Override
     public void apply() {
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
-        state.appId = mySettingsComponent.getAppId();
-        state.appKey = mySettingsComponent.getAppKey();
+        state.provider = appSettingsComponent.getProvider();
+        state.appId = appSettingsComponent.getAppId();
+        state.appKey = appSettingsComponent.getAppKey();
+
+        state.cozeBotID = appSettingsComponent.getCozeBotID();
+        state.cozeToken = appSettingsComponent.getCozeToken();
     }
 
     @Override
     public void reset() {
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
-        mySettingsComponent.setAppId(state.appId);
-        mySettingsComponent.setAppKey(state.appKey);
+        appSettingsComponent.setProvider(state.provider);
+        appSettingsComponent.setAppId(state.appId);
+        appSettingsComponent.setAppKey(state.appKey);
+
+        appSettingsComponent.setCozeBotID(state.cozeBotID);
+        appSettingsComponent.setCozeToken(state.cozeToken);
     }
 
     @Override
     public void disposeUIResources() {
-        mySettingsComponent = null;
+        appSettingsComponent = null;
     }
 
 }

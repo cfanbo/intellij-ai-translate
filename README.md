@@ -23,7 +23,7 @@
 
 ## 安装插件 
 
-> 如果您使用的是 VSCode 开发工具，请移步 https://github.com/cfanbo/ai-translate/ 安装 `vscode-ai-translate`  对应的插件。
+> 如果您使用的是 VSCode 开发工具，请移步 https://github.com/cfanbo/vscode-ai-translate/ 安装 `vscode-ai-translate`  对应的插件。
 
 - 在 IDE 中搜索安装
 

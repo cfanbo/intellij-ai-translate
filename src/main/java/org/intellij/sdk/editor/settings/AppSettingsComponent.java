@@ -36,6 +36,8 @@ public class AppSettingsComponent extends JPanel {
     private String selectedProvider = "";
     private JComboBox<ComboItem> providerComboBox;
 
+    private FormBuilder fb = FormBuilder.createFormBuilder();
+
     public class ComboItem {
         private final String displayName;
         private final String value;
@@ -72,26 +74,19 @@ public class AppSettingsComponent extends JPanel {
     public AppSettingsComponent() {
         myMainPanel = new JPanel(new BorderLayout());
 
-        // 创建一个使用 BoxLayout 的面板来垂直排列组件
-        JPanel combinedPanel = new JPanel(new GridLayout(0, 1, 0, 0));
-        combinedPanel.setLayout(new BoxLayout(combinedPanel, BoxLayout.Y_AXIS));
         JPanel providerFormContent = this.providerPanel();
-        combinedPanel.add(providerFormContent, BorderLayout.WEST);
+        this.fb.addComponent(providerFormContent);
 
 
         // 添加组件到 combinedPanel
         JPanel bailianFormContent = this.bailianPanel();
-        combinedPanel.add(bailianFormContent);
+        this.fb.addComponent(bailianFormContent);
 
         JPanel cozeFormContent = this.cozePanel();
-        combinedPanel.add(cozeFormContent);
+        this.fb.addComponent(cozeFormContent);
 
-        // 将 combinedPanel 添加到主面板的中心
-        myMainPanel.add(combinedPanel, BorderLayout.CENTER);
-
-        // 将主面板添加到当前面板
-        setLayout(new BorderLayout());
-        add(myMainPanel, BorderLayout.CENTER);
+        // 添加到主面板的中心
+        myMainPanel.add(this.fb.getPanel(), BorderLayout.NORTH);
     }
 
     private JPanel providerPanel() {
@@ -181,17 +176,10 @@ public class AppSettingsComponent extends JPanel {
     // ======== bailian settings
     public JPanel bailianPanel() {
         TitledSeparator titledSeparator = new TitledSeparator("阿里云百炼");
-
-        // 创建可点击的超链接
-        String text = "<html>获取地址：<a href=\"https://bailian.console.aliyun.com/#/app-center\">https://bailian.console.aliyun.com/#/app-center</a></html>";
-        JEditorPane linkPane = createHyperlinkPane(text);
-
         JPanel formContent = FormBuilder.createFormBuilder()
                 .addComponent(titledSeparator)
                 .addLabeledComponent(new JBLabel("App ID:"), appId, 1, false)
                 .addLabeledComponent(new JBLabel("App Key:"), appKey, 2, false)
-                .addComponent(linkPane, 3)
-//                .addComponent(new JBLabel("通义千问应用 appId 和 appKey 获取地址：https://bailian.console.aliyun.com/#/app-center"), 3)
                 .addComponentFillVertically(new JPanel(), 0)
                 .getPanel();
 
@@ -220,7 +208,7 @@ public class AppSettingsComponent extends JPanel {
     private JPanel cozePanel() {
         // coze
         TitledSeparator titledSeparator = new TitledSeparator("扣子(字节跳动)");
-        String text = "<html>获取地址：<a href=\"https://www.coze.cn/home\">https://www.coze.cn/home</a></html>";
+        String text = "<html>设置教程参考 <a href='https://github.com/cfanbo/intellij-ai-translate/'>https://github.com/cfanbo/intellij-ai-translate/</a></html>";
         JEditorPane linkPane = createHyperlinkPane(text);
 
         JPanel formContent = FormBuilder.createFormBuilder()

@@ -16,6 +16,7 @@ import com.intellij.execution.ui.ConsoleViewContentType;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.execution.ui.ConsoleView;
 import org.intellij.sdk.editor.settings.AppSettings;
+import org.intellij.sdk.editor.util.Helper;
 import com.intellij.openapi.options.ShowSettingsUtil;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.actionSystem.Presentation;
@@ -53,61 +54,19 @@ public class TranslateIllustrationAction extends AnAction {
 //    int end = primaryCaret.getSelectionEnd();
         String input = primaryCaret.getSelectedText();
 
-        var resultStr = "";
-        printToConsole(project, resultStr);
+        Helper.setProject(project);
 
         try {
             LLmService llm = LLmFactory.getInstance(config);
-            resultStr = llm.callAgentApp(input);
+            llm.callAgentApp(input);
         } catch (ConfigurationException configErr) {
             System.out.println(configErr.getMessage());
-            promptUserToConfigure(project, configErr.getMessage());
+            Helper.promptUserToConfigure(configErr.getMessage());
         } catch (Exception ex) {
-            printToConsole(project, "Error: " + ex.getMessage());
+            Helper.printToConsole("Error: " + ex.getMessage());
             return;
         }
-        printToConsole(project, resultStr);
-    }
-
-    public static void promptUserToConfigure(Project project, String message) {
-        // 弹出提示框，询问用户是否要立即配置
-        int result = Messages.showYesNoDialog(
-                project,
-                message + "\n Would you like to configure AiTranslate?",
-                "Configure AiTranslate",
-                Messages.getQuestionIcon()
-        );
-
-        // 如果用户选择“是”，打开设置页面
-        if (result == Messages.YES) {
-            // 打开插件的设置页面
-            ShowSettingsUtil.getInstance().showSettingsDialog(project, "AI Translate");
-        }
-    }
-
-    public void printToConsole(Project project, String str) {
-        ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow("AiTranslate");
-        if (toolWindow != null) {
-            toolWindow.activate(() -> {
-                // 访问工具窗口内容
-                ConsoleView consoleView = getConsoleViewFromToolWindow(toolWindow);
-                if (consoleView != null) {
-                    consoleView.clear();
-                    consoleView.print(str, ConsoleViewContentType.NORMAL_OUTPUT);
-                }
-            });
-        }
-    }
-
-    private ConsoleView getConsoleViewFromToolWindow(ToolWindow toolWindow) {
-        // 获取工具窗口内容并检查其类型
-        if (toolWindow.getContentManager().getContentCount() > 0) {
-            Object component = toolWindow.getContentManager().getContent(0).getComponent();
-            if (component instanceof ConsoleView) {
-                return (ConsoleView) component;
-            }
-        }
-        return null;
+//        Helper.printToConsole(resultStr);
     }
 
     /**

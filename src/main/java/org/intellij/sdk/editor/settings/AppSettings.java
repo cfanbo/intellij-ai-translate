@@ -21,6 +21,7 @@ public final class AppSettings
 
         @NonNls
         public String provider = "";
+        public boolean streamStatus = true;
         public String appId = "";
         public String appKey = "";
 

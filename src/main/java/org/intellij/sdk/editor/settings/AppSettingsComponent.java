@@ -4,6 +4,7 @@ package org.intellij.sdk.editor.settings;
 
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBTextField;
+import com.intellij.ui.components.JBCheckBox;
 import com.intellij.ui.TitledSeparator;
 import com.intellij.util.ui.FormBuilder;
 import org.jetbrains.annotations.NotNull;
@@ -27,7 +28,7 @@ public class AppSettingsComponent extends JPanel {
     // bailian
     private final JBTextField appId = new JBTextField();
     private final JBTextField appKey = new JBTextField();
-//    private final JBCheckBox myIdeaUserStatus = new JBCheckBox("IntelliJ IDEA user");
+    private final JBCheckBox streamStatus = new JBCheckBox("启用流式输出");
 
     // coze
     private final JBTextField cozeBotID = new JBTextField();
@@ -77,6 +78,7 @@ public class AppSettingsComponent extends JPanel {
         JPanel providerFormContent = this.providerPanel();
         this.fb.addComponent(providerFormContent);
 
+        this.fb.addComponent(streamStatus);
 
         // 添加组件到 combinedPanel
         JPanel bailianFormContent = this.bailianPanel();
@@ -171,6 +173,14 @@ public class AppSettingsComponent extends JPanel {
     }
     public String getProvider() {
         return ((ComboItem) providerComboBox.getSelectedItem()).getValue();
+    }
+
+    // stream
+    public boolean getStreamStatus() {
+        return streamStatus.isSelected();
+    }
+    public void setStreamStatus(boolean enable) {
+        streamStatus.setSelected(enable);
     }
 
     // ======== bailian settings

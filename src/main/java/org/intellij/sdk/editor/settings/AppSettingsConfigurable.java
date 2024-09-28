@@ -41,6 +41,7 @@ final class AppSettingsConfigurable implements Configurable {
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         return !appSettingsComponent.getProvider().equals(state.provider) ||
+                appSettingsComponent.getStreamStatus() != state.streamStatus ||
                 !appSettingsComponent.getAppId().equals(state.appId) ||
                 !appSettingsComponent.getAppKey().equals(state.appKey) ||
                 !appSettingsComponent.getCozeToken().equals(state.cozeToken) ||
@@ -52,6 +53,7 @@ final class AppSettingsConfigurable implements Configurable {
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         state.provider = appSettingsComponent.getProvider();
+        state.streamStatus = appSettingsComponent.getStreamStatus();
         state.appId = appSettingsComponent.getAppId();
         state.appKey = appSettingsComponent.getAppKey();
 
@@ -64,6 +66,7 @@ final class AppSettingsConfigurable implements Configurable {
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         appSettingsComponent.setProvider(state.provider);
+        appSettingsComponent.setStreamStatus(state.streamStatus);
         appSettingsComponent.setAppId(state.appId);
         appSettingsComponent.setAppKey(state.appKey);
 

@@ -1,0 +1,81 @@
+package org.intellij.sdk.editor.util;
+
+import com.intellij.execution.ui.ConsoleView;
+import com.intellij.execution.ui.ConsoleViewContentType;
+import com.intellij.openapi.options.ShowSettingsUtil;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.wm.ToolWindow;
+import com.intellij.openapi.wm.ToolWindowManager;
+
+public class Helper {
+    private static Project project; // 单例 Project 对象
+    private static ToolWindow toolWindow;
+
+    public static void setProject(Project project) {
+        Helper.project = project;
+        Helper.toolWindow = ToolWindowManager.getInstance(project).getToolWindow("AiTranslate");
+    }
+
+    public static void printToConsole(String str) {
+        if (toolWindow != null) {
+            toolWindow.activate(() -> {
+                // 访问工具窗口内容
+                ConsoleView consoleView = getConsoleViewFromToolWindow(toolWindow);
+                if (consoleView != null) {
+                    consoleView.print(str, ConsoleViewContentType.NORMAL_OUTPUT);
+                    consoleView.requestScrollingToEnd();
+                }
+            });
+        }
+    }
+
+    public static void printFinished() {
+        if (toolWindow != null) {
+            toolWindow.activate(() -> {
+                // 访问工具窗口内容
+                ConsoleView consoleView = getConsoleViewFromToolWindow(toolWindow);
+                if (consoleView != null) {
+                    consoleView.print("\r\n\r\n", ConsoleViewContentType.NORMAL_OUTPUT);
+                    consoleView.requestScrollingToEnd();
+                }
+            });
+        }
+    }
+
+    public static void clearConsole() {
+        if (toolWindow != null) {
+            toolWindow.activate(() -> {
+                ConsoleView consoleView = getConsoleViewFromToolWindow(toolWindow);
+                consoleView.clear();
+            });
+        }
+    }
+
+    public static void promptUserToConfigure(String message) {
+        // 弹出提示框，询问用户是否要立即配置
+        int result = Messages.showYesNoDialog(
+                project,
+                message + "\n Would you like to configure AiTranslate?",
+                "Configure AiTranslate",
+                Messages.getQuestionIcon()
+        );
+
+        // 如果用户选择“是”，打开设置页面
+        if (result == Messages.YES) {
+            // 打开插件的设置页面
+            ShowSettingsUtil.getInstance().showSettingsDialog(project, "AI Translate");
+        }
+    }
+
+    public static ConsoleView getConsoleViewFromToolWindow(ToolWindow toolWindow) {
+        // 获取工具窗口内容并检查其类型
+        if (toolWindow.getContentManager().getContentCount() > 0) {
+            Object component = toolWindow.getContentManager().getContent(0).getComponent();
+            if (component instanceof ConsoleView) {
+                return (ConsoleView) component;
+            }
+        }
+        return null;
+    }
+}

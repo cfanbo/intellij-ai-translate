@@ -6,6 +6,7 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
+import org.intellij.sdk.editor.config.LlmConfig;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
@@ -27,6 +28,9 @@ public final class AppSettings
 
         public String cozeBotID = "";
         public String cozeToken = "";
+
+        public String targetLanguage = "";
+        public LlmConfig llmConfig = new LlmConfig();
     }
 
     private State myState = new State();

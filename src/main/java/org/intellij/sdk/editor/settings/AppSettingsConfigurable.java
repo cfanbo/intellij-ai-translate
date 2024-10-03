@@ -44,8 +44,10 @@ final class AppSettingsConfigurable implements Configurable {
                 appSettingsComponent.getStreamStatus() != state.streamStatus ||
                 !appSettingsComponent.getAppId().equals(state.appId) ||
                 !appSettingsComponent.getAppKey().equals(state.appKey) ||
+                !appSettingsComponent.getTargetLang().equals(state.targetLanguage) ||
                 !appSettingsComponent.getCozeToken().equals(state.cozeToken) ||
-                !appSettingsComponent.getCozeBotID().equals(state.cozeBotID);
+                !appSettingsComponent.getCozeBotID().equals(state.cozeBotID) ||
+                !appSettingsComponent.getLlmConfig().equals(state.llmConfig);
     }
 
     @Override
@@ -59,6 +61,9 @@ final class AppSettingsConfigurable implements Configurable {
 
         state.cozeBotID = appSettingsComponent.getCozeBotID();
         state.cozeToken = appSettingsComponent.getCozeToken();
+
+        state.targetLanguage = appSettingsComponent.getTargetLang();
+        state.llmConfig = appSettingsComponent.getLlmConfig();
     }
 
     @Override
@@ -72,6 +77,9 @@ final class AppSettingsConfigurable implements Configurable {
 
         appSettingsComponent.setCozeBotID(state.cozeBotID);
         appSettingsComponent.setCozeToken(state.cozeToken);
+
+        appSettingsComponent.setTargetLang(state.targetLanguage);
+        appSettingsComponent.setLlmConfig(state.llmConfig);
     }
 
     @Override

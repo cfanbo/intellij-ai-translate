@@ -2,26 +2,16 @@
 
 package org.intellij.sdk.editor;
 
-import com.intellij.openapi.actionSystem.ActionUpdateThread;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.editor.Caret;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.wm.ToolWindowManager;
-import org.jetbrains.annotations.NotNull;
-import com.intellij.execution.ui.ConsoleViewContentType;
-import com.intellij.openapi.wm.ToolWindow;
-import com.intellij.execution.ui.ConsoleView;
-import org.intellij.sdk.editor.settings.AppSettings;
-import org.intellij.sdk.editor.util.Helper;
-import com.intellij.openapi.options.ShowSettingsUtil;
-import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.ui.JBColor;
+import org.intellij.sdk.editor.settings.AppSettings;
+import org.intellij.sdk.editor.util.Helper;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Menu action to replace a selection of characters with a fixed string.
@@ -64,7 +54,7 @@ public class TranslateIllustrationAction extends AnAction {
             Helper.promptUserToConfigure(configErr.getMessage());
         } catch (Exception ex) {
             Helper.printToConsole("Error: " + ex.getMessage());
-            return;
+            Helper.printFinished();
         }
 //        Helper.printToConsole(resultStr);
     }

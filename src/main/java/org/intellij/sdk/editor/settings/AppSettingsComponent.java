@@ -2,12 +2,12 @@
 
 package org.intellij.sdk.editor.settings;
 
-import com.alibaba.fastjson.JSONObject;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.ui.TitledSeparator;
 import com.intellij.ui.components.JBCheckBox;
 import com.intellij.ui.components.JBLabel;
+import com.intellij.ui.components.JBPasswordField;
 import com.intellij.ui.components.JBTextField;
 import com.intellij.ui.components.fields.ExpandableTextField;
 import com.intellij.util.ui.FormBuilder;
@@ -17,7 +17,6 @@ import org.intellij.sdk.editor.config.StoreRecord;
 import org.intellij.sdk.editor.util.ComboxItem;
 import org.intellij.sdk.editor.util.Lang;
 import org.intellij.sdk.editor.util.Provider;
-import org.intellij.sdk.editor.util.ProviderItem;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -26,8 +25,6 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -54,7 +51,7 @@ public class AppSettingsComponent extends JPanel {
     private ComboBox<String> configModelComboBox = new ComboBox<>();
 
     private JBTextField configBaseUrl = new JBTextField();
-    private JBTextField configapiKey = new JBTextField();
+    private JBPasswordField configApiKey = new JBPasswordField();
 
     private final JBTextField configTemperature = new JBTextField();
     private final JBTextField configMaxTokens = new JBTextField();
@@ -104,7 +101,7 @@ public class AppSettingsComponent extends JPanel {
                 this.llmPanel.setVisible(true);
 
                 configBaseUrl.setText(item.baseUrl);
-                configapiKey.setText(item.apiKey);
+                configApiKey.setText(item.apiKey);
 
                 if (item.models != null && !item.models.isEmpty()) {
                     configModelComboBox.setModel(new DefaultComboBoxModel<>(item.models.toArray(new String[0])));
@@ -199,7 +196,7 @@ public class AppSettingsComponent extends JPanel {
         configPrompt.setPreferredSize(new Dimension(400, 100));
         configPrompt.setVisible(false);
 
-        fb.addLabeledComponent(new JBLabel("API Key:"), configapiKey)
+        fb.addLabeledComponent(new JBLabel("API Key:"), configApiKey)
                 .addLabeledComponent(new JLabel("Endpoint:"), configBaseUrl)
                 .addComponent(jp);
 
@@ -359,7 +356,7 @@ public class AppSettingsComponent extends JPanel {
         return new LlmConfig(
                 this.provider.getSelectedItem().toString(),
                 configBaseUrl.getText().trim(),
-                configapiKey.getText().trim(),
+                configApiKey.getText().trim(),
                 modelValue,
                 configPrompt.getText().trim(),
                 maxTokens,
@@ -374,7 +371,7 @@ public class AppSettingsComponent extends JPanel {
         }
 
         configBaseUrl.setText(config.baseUrl);
-        configapiKey.setText(config.apiKey);
+        configApiKey.setText(config.apiKey);
         configPrompt.setText(config.prompt);
         configMaxTokens.setText(String.valueOf(config.maxTokens));
         configTemperature.setText(String.valueOf(config.temperature));

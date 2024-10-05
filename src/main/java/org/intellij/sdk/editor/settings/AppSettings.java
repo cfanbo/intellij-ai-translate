@@ -2,11 +2,13 @@
 
 package org.intellij.sdk.editor.settings;
 
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
 import org.intellij.sdk.editor.config.LlmConfig;
+import org.intellij.sdk.editor.config.Store;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
@@ -31,6 +33,9 @@ public final class AppSettings
 
         public String targetLanguage = "";
         public LlmConfig llmConfig = new LlmConfig();
+
+        // store
+        public String storeString = "";
     }
 
     private State myState = new State();

@@ -1,8 +1,9 @@
 {
-  "openai": {
+  "OpenAI": {
+    "name": "OpenAI",
     "provider": "OpenAI",
-    "baseurl": "https://api.openai.com/v1",
-    "apikey": "OpenAI",
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "OpenAI",
     "models": [
       "gpt-3.5-turbo",
       "gpt-3.5-turbo-0125",
@@ -17,10 +18,11 @@
     ],
     "description": "openai"
   },
-  "anthropic": {
+  "Anthropic": {
+    "name": "Anthropic",
     "provider": "Anthropic",
-    "baseurl": "https://api.anthropic.com/",
-    "apikey": "Anthropic",
+    "baseUrl": "https://api.anthropic.com/",
+    "apiKey": "Anthropic",
     "models": [
       "claude-3-5-sonnet-20240620",
       "claude-3-haiku-20240307",
@@ -29,17 +31,19 @@
     ],
     "description": "https://docs.anthropic.com/en/docs/welcome"
   },
-  "deepl": {
+  "DeepL": {
+    "name": "DeepL",
     "provider": "DeepL",
-    "baseurl": "https://api-free.deepl.com",
-    "apikey": "",
+    "baseUrl": "https://api-free.deepl.com",
+    "apiKey": "",
     "models": [],
     "description": "https://www.deepl.com/"
   },
-  "glm": {
+  "清谱 GLM": {
+    "name": "清谱 GLM ",
     "provider": "GLM",
-    "baseurl": "https://open.bigmodel.cn/api/paas/v4",
-    "apikey": "GLM",
+    "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+    "apiKey": "GLM",
     "models": [
       "codegeex-4",
       "glm-4-flash",
@@ -54,27 +58,30 @@
     ],
     "description": ""
   },
-  "doubao": {
+  "豆包-字节跳动": {
+    "name": "豆包-字节跳动",
     "provider": "Doubao",
-    "baseurl": "https://ark.cn-beijing.volces.com/api/v3",
-    "apikey": "Doubao",
+    "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+    "apiKey": "Doubao",
     "models": [],
     "description": ""
   },
-  "deepseek": {
+  "DeepSeek": {
+    "name": "DeepSeek",
     "provider": "Deepseek",
-    "baseurl": "https://api.deepseek.com",
-    "apikey": "Deepseek",
+    "baseUrl": "https://api.deepseek.com",
+    "apiKey": "Deepseek",
     "models": [
       "deepseek-chat",
       "deepseek-coder"
     ],
     "description": "https://platform.deepseek.com/api_keys"
   },
-  "dashscope": {
+  "通义千问": {
+    "name": "通义千问",
     "provider": "Dashscope",
-    "baseurl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-    "apikey": "Dashscope",
+    "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "apiKey": "Dashscope",
     "models": [
       "qwen-max",
       "qwen-plus",
@@ -83,10 +90,11 @@
     ],
     "description": ""
   },
-  "github": {
+  "GitHub": {
+    "name": "GitHub",
     "provider": "GitHub",
-    "baseurl": "https://models.inference.ai.azure.com",
-    "apikey": "github",
+    "baseUrl": "https://models.inference.ai.azure.com",
+    "apiKey": "github",
     "models": [
       "gpt-4o",
       "gpt-4o-mini",
@@ -102,10 +110,11 @@
     ],
     "description": "https://gh.io/models"
   },
-  "gemini": {
+  "Gemini": {
+    "name": "Gemini",
     "provider": "Gemini",
-    "baseurl": "",
-    "apikey": "",
+    "baseUrl": "",
+    "apiKey": "",
     "models": [
       "gemini-1.0-pro-latest",
       "gemini-1.0-pro-002",
@@ -114,5 +123,23 @@
       "gemini-1.5-flash"
     ],
     "description": ""
+  },
+  "阿里云百炼": {
+    "name": "阿里云百炼",
+    "provider": "BaiLian",
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "OpenAI",
+    "models": [],
+    "description": "alibaba",
+    "type": "aiagent"
+  },
+  "扣子": {
+    "name": "扣子",
+    "provider": "Coze",
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "OpenAI",
+    "models": [],
+    "description": "coze",
+    "type": "aiagent"
   }
 }

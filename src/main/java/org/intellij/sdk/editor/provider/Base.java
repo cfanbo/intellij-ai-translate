@@ -57,7 +57,7 @@ abstract public class Base {
             throw new ConfigurationException("apiKey cannot be empty");
         }
 
-        if (config.model.isEmpty()) {
+        if (!config.provider.equals("DeepL") && config.model.isEmpty()) {
             throw new ConfigurationException("LLM model cannot be empty");
         }
 
@@ -142,8 +142,7 @@ abstract public class Base {
         // 将请求体转换为 JSON 字符串
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonRequestBody = objectMapper.writeValueAsString(requestBody);
-        System.out.println(jsonRequestBody);
-        
+
         HttpEntity requestEntity = new StringEntity(jsonRequestBody, ContentType.APPLICATION_JSON);
         httpRequest.setEntity(requestEntity);
     }

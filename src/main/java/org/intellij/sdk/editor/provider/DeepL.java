@@ -141,8 +141,7 @@ public class DeepL extends Base implements LLmService {
             throw new Exception("[DeepL] Target language Unsupported");
         }
         TextResult result = translator.translateText(text, null, toLanguage);
-        System.out.println(result.getText());
-        Helper.printToConsole("DeepL: " + result.getText());
+        Helper.printToConsole(result.getText());
         Helper.printFinished();
     }
 
@@ -199,15 +198,6 @@ public class DeepL extends Base implements LLmService {
         }
 
         for (Language language : languages) {
-            if (language.getSupportsFormality()) {
-                System.out.printf("%s (%s) supports formality%n",
-                        language.getName(),
-                        language.getCode()); // Example: "Italian (it) supports formality"
-
-            } else {
-                System.out.printf("%s (%s)%n", language.getName(), language.getCode()); // Example: "Lithuanian (lt)"
-            }
-
             if (language.getName().equals(this.targetLanguage)) {
                 return language.getCode();
             }

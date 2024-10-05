@@ -18,21 +18,31 @@
   <description>
     <![CDATA[
     This is an intelligent translation assistant for software developers, powered by Large Language Model (LLM) technology.<br/>
-    It is designed to quickly and accurately translate English text into Chinese,
+    It is designed to quickly and accurately translate English text into Other language,
     while precisely preserving the professional terminology and semantics of the software development field.<br/>
+
+    The support provider includes:
+<ul>
+  <li>OpenAI</li>
+  <li>Anthropic</li>
+  <li>Github</li>
+  <li>Alibaba</li>
+  <li>智谱 GLM </li>
+  <li>deepseek</li>
+  <li>字节跳动 doubao</li>
+  <li>Other</li>
+</ul>
+    For more information visit the <a href="https://github.com/cfanbo/intellij-ai-translate">project site</a>.
   ]]>
   </description>
   <change-notes>
     <![CDATA[
-      <ul>
-        <li><b>0.3.0</b> Release 2024.10.04</li>
-        <li><b>0.2.0</b> Release 2024.09.28</li>
-        <li><b>0.1.0</b> Release 2024.09.26</li>
-        <li><b>0.0.4</b> Release 2024.09.21</li>
-        <li><b>0.0.3</b> Release 2024.09.18</li>
-        <li><b>0.0.2</b> Release 2024.09.17</li>
-        <li><b>0.0.1</b> Release 2024.09.02</li>
-      </ul>
+<h2><b>0.3.1</b> Release 2024.10.05</h2>
+<ul>
+  <li>Add support for persistent settings</li>
+  <li>UI improvement</li>
+  <li>Performance optimization</li>
+</ul>
     ]]>
   </change-notes>
 

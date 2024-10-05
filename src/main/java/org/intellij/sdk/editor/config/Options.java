@@ -22,7 +22,6 @@ public class Options {
         this.n = n;
         this.stop = stop;
         this.stream = stream;
-        System.out.println("Options: " + temperature + ", " + maxTokens + ", " + topP + ", " + n + ", " + stop + ", " + stream);
     }
 
     public Options setMaxTokens(Integer maxTokens) {

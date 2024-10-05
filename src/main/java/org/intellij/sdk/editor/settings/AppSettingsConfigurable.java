@@ -1,7 +1,10 @@
 // Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license.
 package org.intellij.sdk.editor.settings;
 
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.options.Configurable;
+import org.intellij.sdk.editor.config.Store;
+import org.intellij.sdk.editor.config.StoreRecord;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.Nullable;
 
@@ -64,6 +67,11 @@ final class AppSettingsConfigurable implements Configurable {
 
         state.targetLanguage = appSettingsComponent.getTargetLang();
         state.llmConfig = appSettingsComponent.getLlmConfig();
+
+        state.storeString = appSettingsComponent.getStoreString();
+
+        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
+        propertiesComponent.setValue("store", state.storeString);
     }
 
     @Override

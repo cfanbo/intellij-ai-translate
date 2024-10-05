@@ -1,0 +1,145 @@
+[
+  {
+    "name": "OpenAI",
+    "provider": "OpenAI",
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "sk-",
+    "models": [
+      "gpt-3.5-turbo",
+      "gpt-3.5-turbo-0125",
+      "gpt-3.5-turbo-1106",
+      "gpt-3.5-turbo-0613",
+      "gpt-4-1106-preview",
+      "gpt-4-0125-preview",
+      "gpt-4o",
+      "gpt-4o-mini",
+      "gpt-4-turbo",
+      "gpt-4"
+    ],
+    "description": "openai"
+  },
+  {
+    "name": "Anthropic",
+    "provider": "Anthropic",
+    "baseUrl": "https://api.anthropic.com/",
+    "apiKey": "sk-",
+    "models": [
+      "claude-3-5-sonnet-20240620",
+      "claude-3-haiku-20240307",
+      "claude-3-opus-20240229",
+      "claude-3-sonnet-20240229"
+    ],
+    "description": "https://docs.anthropic.com/en/docs/welcome"
+  },
+  {
+    "name": "DeepL",
+    "provider": "DeepL",
+    "baseUrl": "https://api-free.deepl.com",
+    "apiKey": "",
+    "models": [],
+    "description": "https://www.deepl.com/"
+  },
+  {
+    "name": "清谱 GLM ",
+    "provider": "GLM",
+    "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+    "apiKey": "",
+    "models": [
+      "codegeex-4",
+      "glm-4-flash",
+      "glm-4v-plus",
+      "glm-4-0520",
+      "glm-4-long",
+      "glm-4v",
+      "glm-4-air",
+      "glm-4",
+      "glm-4-9b",
+      "glm-4-flashx"
+    ],
+    "description": ""
+  },
+  {
+    "name": "豆包-字节跳动",
+    "provider": "Doubao",
+    "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+    "apiKey": "",
+    "models": [],
+    "description": "ep-"
+  },
+  {
+    "name": "DeepSeek",
+    "provider": "Deepseek",
+    "baseUrl": "https://api.deepseek.com",
+    "apiKey": "sk-",
+    "models": [
+      "deepseek-chat",
+      "deepseek-coder"
+    ],
+    "description": "https://platform.deepseek.com/api_keys"
+  },
+  {
+    "name": "通义千问",
+    "provider": "Dashscope",
+    "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "apiKey": "sk-",
+    "models": [
+      "qwen-max",
+      "qwen-plus",
+      "qwen-turbo",
+      "qwen-long"
+    ],
+    "description": ""
+  },
+  {
+    "name": "GitHub",
+    "provider": "GitHub",
+    "baseUrl": "https://models.inference.ai.azure.com",
+    "apiKey": "ghp_",
+    "models": [
+      "gpt-4o",
+      "gpt-4o-mini",
+      "Meta-Llama-3.1-405B-Instruct",
+      "Meta-Llama-3.1-70B-Instruct",
+      "Meta-Llama-3.1-8B-Instruct",
+      "Meta-Llama-3-70B-Instruct",
+      "Meta-Llama-3-8B-Instruct",
+      "Mistral-Nemo",
+      "Mistral-large",
+      "Mistral-large-2407",
+      "Mistral-small"
+    ],
+    "description": "https://gh.io/models"
+  },
+  {
+    "name": "Gemini",
+    "provider": "Gemini",
+    "baseUrl": "",
+    "apiKey": "",
+    "models": [
+      "gemini-1.0-pro-latest",
+      "gemini-1.0-pro-002",
+      "gemini-1.0-pro-001",
+      "gemini-1.5-pro-latest",
+      "gemini-1.5-flash"
+    ],
+    "description": ""
+  },
+  {
+    "name": "阿里云百炼",
+    "provider": "BaiLian",
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "",
+    "models": [],
+    "description": "智能体需要用户自行在服务端进行prompt等一系列的配置",
+    "type": "agent"
+  },
+  {
+    "name": "扣子",
+    "provider": "Coze",
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "",
+    "models": [],
+    "description": "智能体需要用户自行在服务端进行prompt等一系列的配置",
+    "type": "agent"
+  }
+]

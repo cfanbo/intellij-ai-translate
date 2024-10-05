@@ -53,6 +53,9 @@ public class StoreRecord {
     @JSONField(serialize = false)
     public StoreRecord setModel(String name) {
         if (!"".equals(name) && !this.models.contains(name)) {
+            if (this.provider.equals("Coze") || this.provider.equals("BaiLian")) {
+                this.models.clear();
+            }
             this.models.add(name);
         }
         return this;

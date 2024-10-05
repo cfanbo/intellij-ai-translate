@@ -19,6 +19,9 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.core5.http.message.StatusLine;
 import org.intellij.sdk.editor.ConfigurationException;
 import org.intellij.sdk.editor.LLmService;
+import org.intellij.sdk.editor.config.LlmConfig;
+import org.intellij.sdk.editor.config.Store;
+import org.intellij.sdk.editor.config.StoreRecord;
 import org.intellij.sdk.editor.http.response.ChatApiResponse;
 import org.intellij.sdk.editor.http.response.MessageListApiResponse;
 import org.intellij.sdk.editor.http.response.RetrieveApiResponse;
@@ -39,13 +42,24 @@ public class CozeLLM implements LLmService {
     private AppSettings.State config;
     private CozeLLM llm;
 
+    private String providerName = "Coze";
+    private StoreRecord record;
+
+    private String botId = "";
+    private String token = "";
+
     public CozeLLM(AppSettings.State config) throws ConfigurationException {
-        if (config.cozeBotID.isEmpty()) {
+        this.record = Store.getInstance().getRecord(providerName);
+        if (record.models.isEmpty()) {
             throw new ConfigurationException("Coze BotID is empty");
         }
-        if (config.cozeToken.isEmpty()) {
+        if (record.apiKey.isEmpty()) {
             throw new ConfigurationException("Coze Token is empty");
         }
+
+        // bot and token
+        this.botId = record.models.get(0);
+        this.token = record.apiKey;
 
         this.config = config;
 
@@ -65,7 +79,7 @@ public class CozeLLM implements LLmService {
     public void createChat(String prompt) {
         try (final CloseableHttpClient httpclient = HttpClients.createDefault()) {
             final HttpPost httpPost = new HttpPost("https://api.coze.cn/v3/chat");
-            httpPost.setHeader("Authorization", "Bearer " + config.cozeToken);
+            httpPost.setHeader("Authorization", "Bearer " + token);
             httpPost.setHeader("Content-Type", "application/json");
 
 //            System.out.println("Executing request " + httpPost.getMethod() + " " + httpPost.getUri());
@@ -76,7 +90,7 @@ public class CozeLLM implements LLmService {
 
             // 创建一个包含所有数据的 Map
             Map<String, Object> data = new HashMap<>();
-            data.put("bot_id", config.cozeBotID);
+            data.put("bot_id", botId);
             data.put("user_id", "ai-translate");
             data.put("stream", config.streamStatus);
             data.put("auto_save_history", true);
@@ -187,7 +201,7 @@ public class CozeLLM implements LLmService {
                     .build();
 
             final HttpGet httpget = new HttpGet(uri);
-            httpget.setHeader("Authorization", "Bearer " + config.cozeToken);
+            httpget.setHeader("Authorization", "Bearer " + token);
             httpget.setHeader("Content-Type", "application/json");
 
             System.out.println("Executing request " + httpget.getMethod() + " " + httpget.getUri());
@@ -225,7 +239,7 @@ public class CozeLLM implements LLmService {
                     .build();
 
             final HttpGet httpget = new HttpGet(uri);
-            httpget.setHeader("Authorization", "Bearer " + config.cozeToken);
+            httpget.setHeader("Authorization", "Bearer " + token);
             httpget.setHeader("Content-Type", "application/json");
 
             System.out.println("Executing request " + httpget.getMethod() + " " + httpget.getUri());

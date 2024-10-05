@@ -127,7 +127,7 @@
   {
     "name": "阿里云百炼",
     "provider": "BaiLian",
-    "baseUrl": "https://api.openai.com/v1",
+    "baseUrl": "",
     "apiKey": "",
     "models": [],
     "description": "智能体需要用户自行在服务端进行prompt等一系列的配置",
@@ -136,7 +136,7 @@
   {
     "name": "扣子",
     "provider": "Coze",
-    "baseUrl": "https://api.openai.com/v1",
+    "baseUrl": "",
     "apiKey": "",
     "models": [],
     "description": "智能体需要用户自行在服务端进行prompt等一系列的配置",

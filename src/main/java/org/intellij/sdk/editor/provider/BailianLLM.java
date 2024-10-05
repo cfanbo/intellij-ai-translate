@@ -10,19 +10,31 @@ import com.intellij.openapi.application.ApplicationManager;
 import io.reactivex.Flowable;
 import org.intellij.sdk.editor.ConfigurationException;
 import org.intellij.sdk.editor.LLmService;
+import org.intellij.sdk.editor.config.Store;
+import org.intellij.sdk.editor.config.StoreRecord;
 import org.intellij.sdk.editor.settings.AppSettings;
 import org.intellij.sdk.editor.util.Helper;
 
 public class BailianLLM implements LLmService {
     private AppSettings.State config;
 
+    private String providerName = "BaiLian";
+    private StoreRecord record;
+
+    private String appKey = "";
+    private String appId = "";
+
     public BailianLLM(AppSettings.State config) throws ConfigurationException {
-        if (config.appId.isEmpty()) {
+        this.record = Store.getInstance().getRecord(providerName);
+        if (record.models.isEmpty()) {
             throw new ConfigurationException("AppId is empty");
         }
-        if (config.appKey.isEmpty()) {
+        if (record.apiKey.isEmpty()) {
             throw new ConfigurationException("AppKey is empty");
         }
+        // bot and token
+        this.appId = record.models.get(0);
+        this.appKey = record.apiKey;
 
         this.config = config;
     }
@@ -30,8 +42,8 @@ public class BailianLLM implements LLmService {
     public void callAgentApp(String prompt)
             throws ApiException, NoApiKeyException, InputRequiredException {
         ApplicationParam param = ApplicationParam.builder()
-                .apiKey(config.appKey)
-                .appId(config.appId)
+                .apiKey(appKey)
+                .appId(appId)
                 .prompt(prompt)
                 .incrementalOutput(config.streamStatus) // 控制在流式输出模式下是否开启增量输出，即后续输出内容是否包含已输出的内容。设置为True时(默认值），将开启增量输出模式。
                 .build();
@@ -42,8 +54,6 @@ public class BailianLLM implements LLmService {
             // 使用RxJava订阅流式输出
             result.subscribe(
                     appResult -> {
-                        // 每次接收到新的数据块时执行的操作
-                        System.out.println(appResult.getOutput().getText());
                         // 确保在EDT上执行UI操作
                         ApplicationManager.getApplication().invokeLater(() -> {
                             Helper.printToConsole(appResult.getOutput().getText());

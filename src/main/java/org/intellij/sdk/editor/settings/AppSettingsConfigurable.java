@@ -41,15 +41,31 @@ final class AppSettingsConfigurable implements Configurable {
 
     @Override
     public boolean isModified() {
+        // coze
+        StoreRecord record = Store.getInstance().getRecord("Coze");
+        String cozeBotID = "";
+        if (!record.getModelList().isEmpty()) {
+            cozeBotID = record.getModelList().get(0);
+        }
+        String cozeToken = record.apiKey;
+
+        // bailian
+        record = Store.getInstance().getRecord("BaiLian");
+        String appId = "";
+        if (!record.getModelList().isEmpty()) {
+            appId = record.getModelList().get(0);
+        }
+        String appKey = record.apiKey;
+
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         return !appSettingsComponent.getProvider().equals(state.provider) ||
                 appSettingsComponent.getStreamStatus() != state.streamStatus ||
-                !appSettingsComponent.getAppId().equals(state.appId) ||
-                !appSettingsComponent.getAppKey().equals(state.appKey) ||
+                !appSettingsComponent.getAppId().equals(appId) ||
+                !appSettingsComponent.getAppKey().equals(appKey) ||
                 !appSettingsComponent.getTargetLang().equals(state.targetLanguage) ||
-                !appSettingsComponent.getCozeToken().equals(state.cozeToken) ||
-                !appSettingsComponent.getCozeBotID().equals(state.cozeBotID) ||
+                !appSettingsComponent.getCozeToken().equals(cozeToken) ||
+                !appSettingsComponent.getCozeBotID().equals(cozeBotID) ||
                 !appSettingsComponent.getLlmConfig().equals(state.llmConfig);
     }
 
@@ -59,11 +75,11 @@ final class AppSettingsConfigurable implements Configurable {
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         state.provider = appSettingsComponent.getProvider();
         state.streamStatus = appSettingsComponent.getStreamStatus();
-        state.appId = appSettingsComponent.getAppId();
-        state.appKey = appSettingsComponent.getAppKey();
-
-        state.cozeBotID = appSettingsComponent.getCozeBotID();
-        state.cozeToken = appSettingsComponent.getCozeToken();
+//        state.appId = appSettingsComponent.getAppId();
+//        state.appKey = appSettingsComponent.getAppKey();
+//
+//        state.cozeBotID = appSettingsComponent.getCozeBotID();
+//        state.cozeToken = appSettingsComponent.getCozeToken();
 
         state.targetLanguage = appSettingsComponent.getTargetLang();
         state.llmConfig = appSettingsComponent.getLlmConfig();
@@ -76,15 +92,31 @@ final class AppSettingsConfigurable implements Configurable {
 
     @Override
     public void reset() {
+        // coze
+        StoreRecord record = Store.getInstance().getRecord("Coze");
+        String cozeBotID = "";
+        if (!record.getModelList().isEmpty()) {
+            cozeBotID = record.getModelList().get(0);
+        }
+        String cozeToken = record.apiKey;
+
+        // bailian
+        record = Store.getInstance().getRecord("BaiLian");
+        String appId = "";
+        if (!record.getModelList().isEmpty()) {
+            appId = record.getModelList().get(0);
+        }
+        String appKey = record.apiKey;
+
         AppSettings.State state =
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         appSettingsComponent.setProvider(state.provider);
         appSettingsComponent.setStreamStatus(state.streamStatus);
-        appSettingsComponent.setAppId(state.appId);
-        appSettingsComponent.setAppKey(state.appKey);
+        appSettingsComponent.setAppId(appId);
+        appSettingsComponent.setAppKey(appKey);
 
-        appSettingsComponent.setCozeBotID(state.cozeBotID);
-        appSettingsComponent.setCozeToken(state.cozeToken);
+        appSettingsComponent.setCozeBotID(cozeBotID);
+        appSettingsComponent.setCozeToken(cozeToken);
 
         appSettingsComponent.setTargetLang(state.targetLanguage);
         appSettingsComponent.setLlmConfig(state.llmConfig);

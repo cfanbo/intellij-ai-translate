@@ -72,12 +72,8 @@ public class AppSettingsComponent extends JPanel {
     private Provider provider;
 
     public AppSettingsComponent() {
-
-        PropertiesComponent propertiesComponenta = PropertiesComponent.getInstance();
-        String val = propertiesComponenta.getValue("store");
-
         this.lang = new Lang(this.targetLangComboBox);
-        this.provider = new Provider( this.serviceComboBox);
+        this.provider = new Provider(this.serviceComboBox);
 
         configModelComboBox.setEditable(true);
         serviceComboBox.addActionListener(e -> {
@@ -251,8 +247,9 @@ public class AppSettingsComponent extends JPanel {
     }
 
     public String getProvider() {
-//        return ((ComboxItem) providerComboBox.getSelectedItem()).getValue();
-        return "";
+        LlmConfig llmConfig = this.getLlmConfig();
+
+        return llmConfig.provider;
     }
 
     // stream
@@ -267,10 +264,15 @@ public class AppSettingsComponent extends JPanel {
     // ======== bailian settings
     public JPanel bailianPanel() {
         TitledSeparator titledSeparator = new TitledSeparator("阿里云百炼");
+
+        String text = "<html>设置教程参考 <a href='https://github.com/cfanbo/intellij-ai-translate/'>https://github.com/cfanbo/intellij-ai-translate/</a></html>";
+        JEditorPane linkPane = createHyperlinkPane(text);
+
         JPanel formContent = FormBuilder.createFormBuilder()
                 .addComponent(titledSeparator)
                 .addLabeledComponent(new JBLabel("App ID:"), appId, 1, false)
                 .addLabeledComponent(new JBLabel("App Key:"), appKey, 2, false)
+                .addComponent(linkPane, 3)
                 .addComponentFillVertically(new JPanel(), 0)
                 .getPanel();
 
@@ -284,6 +286,8 @@ public class AppSettingsComponent extends JPanel {
 
     public void setAppId(@NotNull String newText) {
         appId.setText(newText.trim());
+        StoreRecord record = Store.getInstance().getRecord("BaiLian");
+        record.setModel(newText.trim());
     }
 
     @NotNull
@@ -293,6 +297,9 @@ public class AppSettingsComponent extends JPanel {
 
     public void setAppKey(@NotNull String newText) {
         appKey.setText(newText.trim());
+
+        StoreRecord record = Store.getInstance().getRecord("BaiLian");
+        record.setApiKey(newText.trim());
     }
 
     // =========== coze settings
@@ -315,10 +322,16 @@ public class AppSettingsComponent extends JPanel {
 
     public void setCozeBotID(@NotNull String newBotID) {
         cozeBotID.setText(newBotID.trim());
+
+        StoreRecord record = Store.getInstance().getRecord("Coze");
+        record.setModel(newBotID.trim());
     }
 
     public void setCozeToken(@NotNull String newToken) {
         cozeToken.setText(newToken.trim());
+
+        StoreRecord record = Store.getInstance().getRecord("Coze");
+        record.setApiKey(newToken.trim());
     }
 
     public String getCozeBotID() {
@@ -382,11 +395,21 @@ public class AppSettingsComponent extends JPanel {
 
         LlmConfig llmConfig = this.getLlmConfig();
         StoreRecord record = store.getRecord(llmConfig.provider);
-        record.setApiKey(llmConfig.apiKey)
-                .setBaseUrl(llmConfig.baseUrl)
-                .setProvider(llmConfig.provider)
-                .setModel(llmConfig.model);
+        if (record.isAgent()) {
+            if (record.provider.equals("Coze")) {
+                record.setApiKey(this.getCozeToken())
+                        .setModel(this.getCozeBotID());
+            } else {
+                record.setApiKey(this.getAppKey())
+                        .setModel(this.getAppId());
+            }
 
+        } else {
+            record.setApiKey(llmConfig.apiKey)
+                    .setBaseUrl(llmConfig.baseUrl)
+                    .setProvider(llmConfig.provider)
+                    .setModel(llmConfig.model);
+        }
         String storeString = store.toJSONString();
 
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();

@@ -14,6 +14,10 @@ public class StoreRecord {
     @JSONField(name = "apikey")
     public String apiKey;    // 与 JSON 中的 "apikey" 一致
 
+
+    @JSONField(name = "apiKeyPlaceholder")
+    public String apiKeyPlaceholder;    // 与 JSON 中的 "apikey" 一致
+
     @JSONField(name = "models")
     public List<String> models;  // 与 JSON 中的 "models" 一致
     public String description;

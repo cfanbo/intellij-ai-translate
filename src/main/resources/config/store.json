@@ -16,34 +16,37 @@
       "gpt-4-turbo",
       "gpt-4"
     ],
-    "description": "openai"
+    "description": "<html><a href='https://platform.openai.com/api-keys'>Create an API key in the dashboard here</a>, then Copy and paste API Key</html>"
   },
   {
     "name": "Anthropic",
     "provider": "Anthropic",
     "baseUrl": "https://api.anthropic.com/",
-    "apiKey": "sk-",
+    "apiKey": "",
+    "apiKeyPlaceholder": "sk-",
     "models": [
       "claude-3-5-sonnet-20240620",
       "claude-3-haiku-20240307",
       "claude-3-opus-20240229",
       "claude-3-sonnet-20240229"
     ],
-    "description": "https://docs.anthropic.com/en/docs/welcome"
+    "description": "<html><a href='https://console.anthropic.com/settings/keys'>Create an API key in the https://console.anthropic.com/settings/keys</a>, then Copy and paste API Key</html>"
   },
   {
     "name": "DeepL",
     "provider": "DeepL",
     "baseUrl": "https://api-free.deepl.com",
     "apiKey": "",
+    "apiKeyPlaceholder": "",
     "models": [],
-    "description": "https://www.deepl.com/"
+    "description": "<html><a href='https://www.deepl.com/'>https://www.deepl.com/</a></html>"
   },
   {
     "name": "清谱 GLM ",
     "provider": "GLM",
     "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
     "apiKey": "",
+    "apiKeyPlaceholder": "",
     "models": [
       "codegeex-4",
       "glm-4-flash",
@@ -56,45 +59,48 @@
       "glm-4-9b",
       "glm-4-flashx"
     ],
-    "description": ""
+    "description": "<html><h2>申请步骤</h2>1. 打开网址 <a href='https://open.bigmodel.cn/usercenter/apikeys/'>https://open.bigmodel.cn/usercenter/apikeys</a><br/>2. 点击右上角 \"创建API key\" 并复制</html>"
   },
   {
-    "name": "豆包-字节跳动",
+    "name": "豆包大模型",
     "provider": "Doubao",
     "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
     "apiKey": "",
     "models": [],
-    "description": "ep-"
+    "description": "<html><h2>申请步骤</h2>1. 打开 <a href='https://console.volcengine.com/ark'>豆包大模型</a>，登录账号后会跳转到控制台页面，点击定制模型-模型推理。<br/>2. 创建推理接入点，填写完信息创建成功后，复制 接入点 ID 到本扩展中，格式如：ep-20250215077120-69123</html>"
   },
   {
     "name": "DeepSeek",
     "provider": "Deepseek",
     "baseUrl": "https://api.deepseek.com",
-    "apiKey": "sk-",
+    "apiKey": "",
+    "apiKeyPlaceholder": "sk-",
     "models": [
       "deepseek-chat",
       "deepseek-coder"
     ],
-    "description": "https://platform.deepseek.com/api_keys"
+    "description": "<html><h2>申请步骤</h2>1. 打开 <a href='https://www.deepseek.com/'>DeepSeek</a> ，登录你的账号，登录成功后点击”管理控制台“。\n2.打开 <a href='中https://platform.deepseek.com/api_keys'>DeepSeek 控制台</a> 获取API Key</html>"
   },
   {
     "name": "通义千问",
     "provider": "Dashscope",
     "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-    "apiKey": "sk-",
+    "apiKey": "",
+    "apiKeyPlaceholder": "sk-",
     "models": [
       "qwen-max",
       "qwen-plus",
       "qwen-turbo",
       "qwen-long"
     ],
-    "description": ""
+    "description": "<html><h2>申请步骤</h2>1. 打开 <a href='https://bailian.console.aliyun.com/#/home'>阿里云百炼</a> 控制台<br/>2. 点击右上角“API-KEY”菜单, 创建并获取API Key</html>"
   },
   {
     "name": "GitHub",
     "provider": "GitHub",
     "baseUrl": "https://models.inference.ai.azure.com",
-    "apiKey": "ghp_",
+    "apiKey": "",
+    "apiKeyPlaceholder": "ghp_",
     "models": [
       "gpt-4o",
       "gpt-4o-mini",
@@ -108,13 +114,14 @@
       "Mistral-large-2407",
       "Mistral-small"
     ],
-    "description": "https://gh.io/models"
+    "description": "<html><h2>申请步骤</h2>1. 打开 <a href='https://gh.io/models'>https://gh.io/models</a>, 选择一个模型，如 \"OpenAI GPT-4o\"<br/>2. 点击右上角\"Get Started\", 点击右上角头像菜单中的”Settings“<br/>3. 左侧菜单下方找到”Developer settings“<br/>4. 找到 \"Personal access tokens\" 里面的 \"Tokens(classic)\", 点击右上角 \"Generate new token\" 创建即可</html>"
   },
   {
     "name": "Gemini",
     "provider": "Gemini",
     "baseUrl": "",
     "apiKey": "",
+    "apiKeyPlaceholder": "",
     "models": [
       "gemini-1.0-pro-latest",
       "gemini-1.0-pro-002",
@@ -129,8 +136,9 @@
     "provider": "BaiLian",
     "baseUrl": "",
     "apiKey": "",
+    "apiKeyPlaceholder": "sk-",
     "models": [],
-    "description": "智能体需要用户自行在服务端进行prompt等一系列的配置",
+    "description": "<html><h2>申请步骤</h2>1. 打开 <a href='https://bailian.console.aliyun.com/#/app-center'>https://bailian.console.aliyun.com/#/app-center</a><br/>2. 点击左侧\"我的应用\" -> \"新增应用\", 并填写相关配置，如prompt, 创建成功后，即可获取应用ID <br/>3. 点击右上角头像，找到 API-KEY，创建并获取</html>",
     "type": "agent"
   },
   {
@@ -138,8 +146,9 @@
     "provider": "Coze",
     "baseUrl": "",
     "apiKey": "",
+    "apiKeyPlaceholder": "pat_",
     "models": [],
-    "description": "智能体需要用户自行在服务端进行prompt等一系列的配置",
+    "description": "<html>获取教程 <a href='https://github.com/cfanbo/intellij-ai-translate/blob/main/docs/coze.md'>https://github.com/cfanbo/intellij-ai-translate/blob/main/docs/coze.md</a></html>",
     "type": "agent"
   }
 ]

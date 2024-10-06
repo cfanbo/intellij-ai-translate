@@ -52,6 +52,7 @@ public class AppSettingsComponent extends JPanel {
 
     private JBTextField configBaseUrl = new JBTextField();
     private JBPasswordField configApiKey = new JBPasswordField();
+    private JEditorPane configDescriptionText = new JEditorPane();
 
     private final JBTextField configTemperature = new JBTextField();
     private final JBTextField configMaxTokens = new JBTextField();
@@ -74,6 +75,24 @@ public class AppSettingsComponent extends JPanel {
     public AppSettingsComponent() {
         this.lang = new Lang(this.targetLangComboBox);
         this.provider = new Provider(this.serviceComboBox);
+
+        {
+            configDescriptionText.setContentType("text/html");
+            configDescriptionText.setEditable(false);
+            configDescriptionText.setOpaque(false);
+            configDescriptionText.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, Boolean.TRUE);
+//            configDescriptionText.setText(text);
+
+            configDescriptionText.addHyperlinkListener(e -> {
+                if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+                    try {
+                        Desktop.getDesktop().browse(new URI(e.getURL().toString()));
+                    } catch (IOException | URISyntaxException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            });
+        }
 
         configModelComboBox.setEditable(true);
         serviceComboBox.addActionListener(e -> {
@@ -98,6 +117,13 @@ public class AppSettingsComponent extends JPanel {
 
                 configBaseUrl.setText(item.baseUrl);
                 configApiKey.setText(item.apiKey);
+//                configApiKey.getEmptyText().setText(item.apiKeyPlaceholder);
+                if ("".equals(item.description)) {
+                    configDescriptionText.setVisible(false);
+                } else {
+                    configDescriptionText.setVisible(true);
+                    configDescriptionText.setText(item.description);
+                }
 
                 if (item.models != null && !item.models.isEmpty()) {
                     configModelComboBox.setModel(new DefaultComboBoxModel<>(item.models.toArray(new String[0])));
@@ -194,6 +220,7 @@ public class AppSettingsComponent extends JPanel {
 
         fb.addLabeledComponent(new JBLabel("API Key:"), configApiKey)
                 .addLabeledComponent(new JLabel("Endpoint:"), configBaseUrl)
+                .addComponent(configDescriptionText)
                 .addComponent(jp);
 
         return fb.getPanel();

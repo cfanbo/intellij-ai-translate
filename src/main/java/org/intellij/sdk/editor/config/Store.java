@@ -5,9 +5,7 @@ import com.alibaba.fastjson.TypeReference;
 import com.intellij.ide.util.PropertiesComponent;
 import org.intellij.sdk.editor.util.Func;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Store {
     public List<StoreRecord> records;
@@ -19,10 +17,30 @@ public class Store {
 
         if (jsonContent == null || "".equals(jsonContent)) {
             jsonContent = Func.readResourceFileContents(recordsFile);
-        }
+            this.records = JSON.parseObject(jsonContent, new TypeReference<List<StoreRecord>>() {});
+        } else {
+            // 合并数据，后期可对store.json文件进行修改，包含新项添加和删除
+            List<StoreRecord> userRecords = JSON.parseObject(jsonContent, new TypeReference<List<StoreRecord>>() {});
+            List<StoreRecord> templateRecords = JSON.parseObject(Func.readResourceFileContents(recordsFile), new TypeReference<List<StoreRecord>>() {});
 
-        this.records = JSON.parseObject(jsonContent, new TypeReference<List<StoreRecord>>() {
-        });
+            for (int i = 0; i < templateRecords.size(); i++) {
+                StoreRecord templateRecord = templateRecords.get(i);
+                StoreRecord userRecord = userRecords.get(i);
+
+                if (userRecord.provider.equals(templateRecord.provider)) {
+                    templateRecord.setApiKey(userRecord.apiKey);
+                    templateRecord.setBaseUrl(userRecord.baseUrl);
+                    templateRecord.setType(userRecord.type);
+
+                    // 模型处理
+                    Set<String> mergedSet = new HashSet<>(templateRecord.models);
+                    mergedSet.addAll(userRecord.models);
+                    templateRecord.setModels(new ArrayList<>(mergedSet));
+                }
+            }
+
+            this.records = templateRecords;
+        }
     }
 
     // 静态内部类

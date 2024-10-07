@@ -62,7 +62,7 @@
     "description": "<html><h2>申请步骤</h2>1. 打开网址 <a href='https://open.bigmodel.cn/usercenter/apikeys/'>https://open.bigmodel.cn/usercenter/apikeys</a><br/>2. 点击右上角 \"创建API key\" 并复制</html>"
   },
   {
-    "name": "豆包大模型",
+    "name": "字节跳动",
     "provider": "Doubao",
     "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
     "apiKey": "",
@@ -82,7 +82,7 @@
     "description": "<html><h2>申请步骤</h2>1. 打开 <a href='https://www.deepseek.com/'>DeepSeek</a> ，登录你的账号，登录成功后点击”管理控制台“。\n2.打开 <a href='中https://platform.deepseek.com/api_keys'>DeepSeek 控制台</a> 获取API Key</html>"
   },
   {
-    "name": "通义千问",
+    "name": "Alibaba",
     "provider": "Dashscope",
     "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
     "apiKey": "",

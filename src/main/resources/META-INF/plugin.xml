@@ -37,6 +37,10 @@
   </description>
   <change-notes>
     <![CDATA[
+<h2><b>0.3.2</b> Release 2024.10.08</h2>
+<ul>
+  <li>fixed: service provider name typos</li>
+</ul>
 <h2><b>0.3.1</b> Release 2024.10.05</h2>
 <ul>
   <li>Add support for persistent settings</li>

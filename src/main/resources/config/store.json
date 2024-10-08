@@ -42,7 +42,7 @@
     "description": "<html><a href='https://www.deepl.com/'>https://www.deepl.com/</a></html>"
   },
   {
-    "name": "清谱 GLM ",
+    "name": "智谱 GLM ",
     "provider": "GLM",
     "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
     "apiKey": "",
@@ -79,7 +79,7 @@
       "deepseek-chat",
       "deepseek-coder"
     ],
-    "description": "<html><h2>申请步骤</h2>1. 打开 <a href='https://www.deepseek.com/'>DeepSeek</a> ，登录你的账号，登录成功后点击”管理控制台“。\n2.打开 <a href='中https://platform.deepseek.com/api_keys'>DeepSeek 控制台</a> 获取API Key</html>"
+    "description": "<html><h2>申请步骤</h2>1. 打开 <a href='https://www.deepseek.com/'>DeepSeek</a> ，登录你的账号，登录成功后点击”管理控制台“。<br/>2.打开 <a href='中https://platform.deepseek.com/api_keys'>DeepSeek 控制台</a> 获取API Key</html>"
   },
   {
     "name": "Alibaba",

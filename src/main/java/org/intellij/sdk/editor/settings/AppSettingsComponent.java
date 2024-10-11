@@ -118,7 +118,7 @@ public class AppSettingsComponent extends JPanel {
                 configBaseUrl.setText(item.baseUrl);
                 configApiKey.setText(item.apiKey);
 //                configApiKey.getEmptyText().setText(item.apiKeyPlaceholder);
-                if ("".equals(item.description)) {
+                if (item.description.isEmpty()) {
                     configDescriptionText.setVisible(false);
                 } else {
                     configDescriptionText.setVisible(true);

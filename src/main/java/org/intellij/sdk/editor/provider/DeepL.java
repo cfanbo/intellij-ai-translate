@@ -137,7 +137,7 @@ public class DeepL extends Base implements LLmService {
 
     public void callAgentApp(String text) throws Exception {
         String toLanguage = this.getTargetLang();
-        if ("".equals(toLanguage)) {
+        if (toLanguage.isEmpty()) {
             throw new Exception("[DeepL] Target language Unsupported");
         }
         TextResult result = translator.translateText(text, null, toLanguage);
@@ -148,7 +148,7 @@ public class DeepL extends Base implements LLmService {
     private String getSourceLang() throws DeepLException, InterruptedException, IOException {
         String langCode;
         langCode = this.getLangCode("source");
-        if (!"".equals(langCode)) {
+        if (!langCode.isEmpty()) {
             return langCode;
         }
 
@@ -167,7 +167,7 @@ public class DeepL extends Base implements LLmService {
     private String getTargetLang() throws DeepLException, IOException, InterruptedException {
         String langCode;
         langCode = this.getLangCode("target");
-        if (!"".equals(langCode)) {
+        if (!langCode.isEmpty()) {
             return langCode;
         }
 

@@ -15,7 +15,7 @@ public class Store {
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
         String jsonContent = propertiesComponent.getValue("store");
 
-        if (jsonContent == null || "".equals(jsonContent)) {
+        if (jsonContent == null || jsonContent.isEmpty()) {
             jsonContent = Func.readResourceFileContents(recordsFile);
             this.records = JSON.parseObject(jsonContent, new TypeReference<List<StoreRecord>>() {});
         } else {

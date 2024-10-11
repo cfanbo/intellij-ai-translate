@@ -62,7 +62,7 @@ abstract public class Base {
         }
 
         // set target language
-        if (!"".equals(conf.targetLanguage)) {
+        if (!conf.targetLanguage.isEmpty()) {
             this.setTargetLanguage(conf.targetLanguage);
         }
 
@@ -247,7 +247,7 @@ data: {
             BufferedReader reader = new BufferedReader(new InputStreamReader(responseStream));
             String line;
             while ((line = reader.readLine()) != null) {
-                if ("".equals(line)) {
+                if (line.isEmpty()) {
                     continue;
                 }
 

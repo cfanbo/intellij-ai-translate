@@ -149,7 +149,7 @@ public class CozeLLM implements LLmService {
                         BufferedReader reader = new BufferedReader(new InputStreamReader(responseStream));
                         String line;
                         while ((line = reader.readLine()) != null) {
-                            if ("".equals(line)) {
+                            if (line.isEmpty()) {
                                 continue;
                             }
 

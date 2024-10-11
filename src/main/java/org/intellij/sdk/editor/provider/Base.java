@@ -72,7 +72,7 @@ abstract public class Base {
                 config.baseUrl,
                 config.apiKey,
                 config.model,
-                config.prompt.equals("") ? this.defaultTemplate.prompt : config.prompt
+                config.prompt.isEmpty() ? this.defaultTemplate.prompt : config.prompt
         );
 
         if (config.maxTokens > 0) {
@@ -110,7 +110,7 @@ abstract public class Base {
         String prompt = this.getPrompt();
         String systemPrompmt = this.getSystemPrompt();
 
-        if (baseConfig.provider.toLowerCase().equals("anthropic")) {
+        if (baseConfig.provider.equalsIgnoreCase("anthropic")) {
             requestBody.put("system", systemPrompmt);
             requestBody.put("messages", new Object[]{
                     new HashMap<String, String>() {{

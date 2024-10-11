@@ -379,12 +379,12 @@ public class AppSettingsComponent extends JPanel {
 
     public LlmConfig getLlmConfig() {
         int maxTokens = 1024;
-        if (!configMaxTokens.getText().trim().equals("")) {
+        if (!configMaxTokens.getText().trim().isEmpty()) {
             maxTokens = Integer.parseInt(configMaxTokens.getText().trim());
         }
 
         double temperature = 0;
-        if (!configTemperature.getText().trim().equals("")) {
+        if (!configTemperature.getText().trim().isEmpty()) {
             temperature = Double.parseDouble(configTemperature.getText().trim());
         }
 
@@ -394,7 +394,7 @@ public class AppSettingsComponent extends JPanel {
         }
 
         return new LlmConfig(
-                this.provider.getSelectedItem().toString(),
+                this.provider.getSelectedItem(),
                 configBaseUrl.getText().trim(),
                 String.copyValueOf(configApiKey.getPassword()),
                 modelValue,

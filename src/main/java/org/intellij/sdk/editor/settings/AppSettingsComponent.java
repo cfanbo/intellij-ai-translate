@@ -139,7 +139,7 @@ public class AppSettingsComponent extends JPanel {
             }
         });
 
-        fb.addLabeledComponent(new JBLabel("target Language:"), targetLangComboBox).addComponent(streamStatus);
+        fb.addLabeledComponent(new JBLabel("Target Language:"), targetLangComboBox).addComponent(streamStatus);
 
         TitledSeparator titledSeparator = new TitledSeparator("");
         fb.addComponent(titledSeparator);
@@ -396,7 +396,7 @@ public class AppSettingsComponent extends JPanel {
         return new LlmConfig(
                 this.provider.getSelectedItem().toString(),
                 configBaseUrl.getText().trim(),
-                configApiKey.getText().trim(),
+                String.copyValueOf(configApiKey.getPassword()),
                 modelValue,
                 configPrompt.getText().trim(),
                 maxTokens,

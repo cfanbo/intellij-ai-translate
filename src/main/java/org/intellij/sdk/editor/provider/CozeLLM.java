@@ -221,8 +221,6 @@ public class CozeLLM implements LLmService {
                 if (!next_loop) {
                     break;
                 }
-
-                Thread.sleep(1000);
             }
 
         } catch(Exception e) {

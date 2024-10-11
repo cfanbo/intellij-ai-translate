@@ -19,7 +19,6 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.core5.http.message.StatusLine;
 import org.intellij.sdk.editor.ConfigurationException;
 import org.intellij.sdk.editor.LLmService;
-import org.intellij.sdk.editor.config.LlmConfig;
 import org.intellij.sdk.editor.config.Store;
 import org.intellij.sdk.editor.config.StoreRecord;
 import org.intellij.sdk.editor.http.response.ChatApiResponse;

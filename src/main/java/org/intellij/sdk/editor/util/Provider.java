@@ -1,13 +1,9 @@
 package org.intellij.sdk.editor.util;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 import com.intellij.openapi.ui.ComboBox;
 import org.intellij.sdk.editor.config.Store;
 import org.intellij.sdk.editor.config.StoreRecord;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Provider {

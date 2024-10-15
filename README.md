@@ -16,14 +16,12 @@
 
 选择英文注释段落，按 Ctrl+Alt+T 即可翻译，也可以选择要翻译的段落，右键选择“AI 翻译“ 菜单翻译。
 
-使用插件前，需要配置Alibaba 大模型 `通义千问` 应用 AppId 和 AppKey。访问 https://bailian.console.aliyun.com/， 点击左侧栏菜单 ”我的应用“即可看到应用信息。
-
-访问项目主页：https://github.com/cfanbo/intellij-ai-translate<br/>
+项目主页：https://github.com/cfanbo/intellij-ai-translate<br/>
 <!-- Plugin description end -->
 
-## 安装插件 
+> 如果您使用的是 VSCode 开发工具，请移步 https://github.com/cfanbo/vscode-ai-translate/ 。
 
-> 如果您使用的是 VSCode 开发工具，请移步 https://github.com/cfanbo/vscode-ai-translate/ 安装 `vscode-ai-translate`  对应的插件。
+## 安装插件 
 
 - 在 IDE 中搜索安装
 
@@ -43,32 +41,40 @@
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
 ## 使用教程
-### 1. 获取配置参数
 
-翻译功能主要是由LLM来提供，目前支持 `阿里去百炼` 和 字节跳动`扣子(coze) `，可根据不同服务商查看获取相关配置参数：
+翻译功能主要是由LLM来提供，目前支持的服务提供商：
 
+- OpenAI
+- Anthropic
+- DeepL
+- 智谱 GLM
+- 豆包大模型（字节跳动）
+- DeepSeek
+- Alibaba
+- GitHub
+- Gemini
 - [阿里云百炼](./docs/bailian.md) 获取 `APP_ID` 和 `APP_KEY`
 - [扣子 coze](./docs/coze.md) 获取 `BotID` 和 `token`
 
-### 2. 在IDE里配置 AI Translate
+
+### 在IDE里配置 AI Translate
 
 在IDE里配置 AI Translate，点击菜单栏 `File` -> `Settings` -> `Tools` -> `AI Translate`，填写前面获取的应用信息。
-![img.png](static/image/setting.png)
+![img.png](static/image/WX20241015-182437@2x.png)
 
-### 3. 测试
+### 测试
 选择文档中的注释段落，按 `Ctrl+Alt+T` 即可翻译。也可以右键选择 "AI 翻译" 菜单进行翻译。
 
 > 如果按快捷键没有响映的话，请检查快捷键是否存在冲突，也可以在IDE里自定义快捷键。
 
 
-
 ## 说明
 
-本插件实现的功能很简单，就是将用户选中的文本发送至 大模型 的一个API 接口，然后再将模型返回的数据在IDE客户端输出。
+本插件实现的功能很简单，就是将用户选中的文本发送至大模型的API 接口，然后再将模型返回的文本在IDE客户端输出。
 
-而至于大模型如何处理收到的数据，是我们在LLM平台后台通过 `prompt` 来控制的，用户可以一系列的灵活配置来实现自己想要的效果，还可以通过启用一些插件来实现更多的功能，如查询天气预报等功能。
+如果用户选择了智能体类型 `阿里云百炼` 或 `扣子 coze`, 用户可以在智能体配置中心实现更加灵活的控制，如查询天气预报等功能、查询公交地铁信息等。
 
-如果上面的`prompt` 没有达到您想要的效果，还可以进行自由调整以达到最终想实现的效果。
+而如果选择的是其它 Provider, 则 prompt 是固定的，就是告诉大模型将发送的文本翻译成目标语言，并返回给客户端。
 
 
 

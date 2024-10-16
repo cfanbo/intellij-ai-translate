@@ -25,7 +25,10 @@ public class Store {
 
             for (int i = 0; i < templateRecords.size(); i++) {
                 StoreRecord templateRecord = templateRecords.get(i);
-                StoreRecord userRecord = userRecords.get(i);
+                StoreRecord userRecord = Store.readProviderItem(userRecords, templateRecord.name);
+                if (userRecord == null) {
+                    continue;
+                }
 
                 if (userRecord.provider.equals(templateRecord.provider)) {
                     templateRecord.setApiKey(userRecord.apiKey);
@@ -41,6 +44,15 @@ public class Store {
 
             this.records = templateRecords;
         }
+    }
+
+    private static StoreRecord readProviderItem(List<StoreRecord> userRecords, String name) {
+        for (StoreRecord record : userRecords) {
+            if (record.name.equals(name)) {
+                return record;
+            }
+        }
+        return null;
     }
 
     // 静态内部类

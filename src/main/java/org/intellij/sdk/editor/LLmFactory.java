@@ -23,8 +23,8 @@ public class LLmFactory {
                     return new BailianLLM(config);
                 case "coze":
                     return new CozeLLM(config);
-//                case "azure":
-//                    return new Anthropic(config);
+                case "ollama":
+                    return new Ollama(config);
                 case "deepl":
                     return new DeepL(config);
                 case "anthropic":

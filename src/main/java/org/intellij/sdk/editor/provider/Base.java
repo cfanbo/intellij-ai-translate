@@ -41,7 +41,7 @@ abstract public class Base {
     protected String targetLanguage = "Chinese";
     private String text = "";
 
-    private HttpUriRequestBase httpRequest;
+    protected HttpUriRequestBase httpRequest;
 
     public Base(AppSettings.State conf) throws ConfigurationException {
         this.config = conf;
@@ -53,7 +53,7 @@ abstract public class Base {
             throw new ConfigurationException("endpoint cannot be empty");
         }
 
-        if (config.apiKey.isEmpty()) {
+        if (!config.provider.equals("Ollama") && config.apiKey.isEmpty()) {
             throw new ConfigurationException("apiKey cannot be empty");
         }
 
@@ -92,7 +92,7 @@ abstract public class Base {
         return this.httpRequest;
     }
 
-    private void withHttpRequestHeaderAndBody(HttpUriRequestBase httpRequest) throws JsonProcessingException, URISyntaxException {
+    protected void withHttpRequestHeaderAndBody(HttpUriRequestBase httpRequest) throws JsonProcessingException, URISyntaxException {
         this.withHttpRequestHeader(httpRequest);
         this.withHttpRequestBody(httpRequest);
     }
@@ -133,6 +133,8 @@ abstract public class Base {
 
         if (config.streamStatus) {
             requestBody.put("stream", true);
+        } else {
+            requestBody.put("stream", false);
         }
 
         requestBody.put("max_tokens", options.maxTokens);

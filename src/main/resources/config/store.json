@@ -132,6 +132,15 @@
     "description": ""
   },
   {
+    "name": "Ollama",
+    "provider": "Ollama",
+    "baseUrl": "http://localhost:11434",
+    "apiKey": "",
+    "apiKeyPlaceholder": "",
+    "models": [],
+    "description": "The API Key does not need to be filled in, just leave it blank."
+  },
+  {
     "name": "阿里云百炼",
     "provider": "BaiLian",
     "baseUrl": "",

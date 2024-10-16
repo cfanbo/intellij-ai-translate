@@ -14,6 +14,7 @@ import com.intellij.util.ui.FormBuilder;
 import org.intellij.sdk.editor.config.LlmConfig;
 import org.intellij.sdk.editor.config.Store;
 import org.intellij.sdk.editor.config.StoreRecord;
+import org.intellij.sdk.editor.provider.Ollama;
 import org.intellij.sdk.editor.util.ComboxItem;
 import org.intellij.sdk.editor.util.Lang;
 import org.intellij.sdk.editor.util.Provider;
@@ -25,6 +26,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 
 /**
@@ -123,6 +125,11 @@ public class AppSettingsComponent extends JPanel {
                 } else {
                     configDescriptionText.setVisible(true);
                     configDescriptionText.setText(item.description);
+                }
+
+                if (item.provider.equals("Ollama")) {
+                    // fetch current support models list
+                    item.models = Ollama.getModelList(configBaseUrl.getText().trim());
                 }
 
                 if (item.models != null && !item.models.isEmpty()) {

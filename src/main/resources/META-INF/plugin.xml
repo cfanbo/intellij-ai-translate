@@ -29,6 +29,7 @@
   <li>Alibaba</li>
   <li>智谱 GLM </li>
   <li>deepseek</li>
+  <li>Ollama</li>
   <li>字节跳动 doubao</li>
   <li>Other</li>
 </ul>
@@ -37,6 +38,10 @@
   </description>
   <change-notes>
     <![CDATA[
+<h2><b>0.4.0</b> Release 2024.10.08</h2>
+<ul>
+  <li>feat: add support for Ollama</li>
+</ul>
 <h2><b>0.3.2</b> Release 2024.10.08</h2>
 <ul>
   <li>fixed: service provider name typos</li>

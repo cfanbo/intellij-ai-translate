@@ -5,8 +5,6 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.ClassicHttpRequest;
-import org.apache.hc.core5.http.ClassicHttpResponse;
-import org.apache.hc.core5.http.HttpException;
 import org.apache.hc.core5.http.io.HttpClientResponseHandler;
 import org.intellij.sdk.editor.ConfigurationException;
 import org.intellij.sdk.editor.LLmService;

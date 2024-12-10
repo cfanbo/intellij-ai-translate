@@ -3,7 +3,6 @@ package org.intellij.sdk.editor.provider;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.intellij.openapi.application.ApplicationManager;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -13,14 +12,12 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.HttpEntity;
-import org.apache.hc.core5.http.HttpException;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.HttpClientResponseHandler;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.intellij.sdk.editor.ConfigurationException;
 import org.intellij.sdk.editor.LLmService;
 import org.intellij.sdk.editor.settings.AppSettings;
-import org.intellij.sdk.editor.util.Func;
 import org.intellij.sdk.editor.util.Helper;
 
 import java.io.BufferedReader;
@@ -30,9 +27,7 @@ import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.concurrent.Executor;
 
 
 public class Ollama extends Base implements LLmService {

@@ -41,20 +41,31 @@ public class Anthropic extends Base implements LLmService {
             httpRequest.addHeader("x-api-key", baseConfig.apiKey);
 
             if (!config.streamStatus) {
-                httpclient.execute(httpRequest, response -> this.responseHandler(response));
-                Helper.printFinished();
+                httpclient.execute(httpRequest, (HttpClientResponseHandler<Void>) response -> {
+                    // 处理响应
+                    responseHandler(response);
+                    Helper.printFinished();
+                    return null;
+                });
             } else {
                 // stream output
-                try (CloseableHttpResponse httpResponse = httpclient.execute(httpRequest)) {
-                    this.streamResponseHandler(httpResponse);
-                } finally {
-                    ApplicationManager.getApplication().invokeLater(() -> {
-                        Helper.printFinished();
-                    });
-                }
+                httpclient.execute(httpRequest, (HttpClientResponseHandler<Void>) response -> {
+                    try {
+                        // 处理流式响应
+//                            streamResponseHandler(response);
+                        // 将 ClassicHttpResponse 转换为 CloseableHttpResponse
+                        if (response instanceof CloseableHttpResponse) {
+                            streamResponseHandler((CloseableHttpResponse) response);
+                        } else {
+                            throw new IllegalStateException("Response is not an instance of CloseableHttpResponse");
+                        }
+                    } finally {
+                        ApplicationManager.getApplication().invokeLater(Helper::printFinished);
+                    }
+                    return null;
+                });
             }
         } catch (Exception e) {
-            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }

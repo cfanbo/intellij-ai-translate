@@ -38,6 +38,10 @@
   </description>
   <change-notes>
     <![CDATA[
+<h2><b>0.4.1</b> Release 2024.12.10</h2>
+<ul>
+  <li>refactor: Replace deprecated CloseableHttpClient.execute with HttpClientResponseHandler</li>
+</ul>
 <h2><b>0.4.0</b> Release 2024.10.08</h2>
 <ul>
   <li>feat: add support for Ollama</li>

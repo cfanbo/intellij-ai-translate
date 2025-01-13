@@ -37,7 +37,7 @@ java {
 dependencies {
     implementation("org.apache.httpcomponents.client5:httpclient5:5.4.1")
     implementation("com.alibaba:dashscope-sdk-java:2.17.1")
-    implementation("com.alibaba:fastjson:2.0.53")
+    implementation("com.alibaba:fastjson:2.0.54")
     implementation("com.deepl.api:deepl-java:1.7.0")
     testImplementation(libs.junit)
 

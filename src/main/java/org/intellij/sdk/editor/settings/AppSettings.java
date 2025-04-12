@@ -23,6 +23,7 @@ public final class AppSettings
         @NonNls
         public String provider = "";
         public boolean streamStatus = true;
+        public boolean automateClearConsoleStatus = false;
 //        public String appId = "";
 //        public String appKey = "";
 //

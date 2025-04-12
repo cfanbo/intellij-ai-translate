@@ -39,6 +39,7 @@ public class AppSettingsComponent extends JPanel {
     private final JBTextField appId = new JBTextField();
     private final JBTextField appKey = new JBTextField();
     private final JBCheckBox streamStatus = new JBCheckBox("Enable Stream Output");
+    private final JBCheckBox automateClearConsoleStatus = new JBCheckBox("Automatically clear the output console before translate");
 
     // coze
     private final JBTextField cozeBotID = new JBTextField();
@@ -146,7 +147,8 @@ public class AppSettingsComponent extends JPanel {
             }
         });
 
-        fb.addLabeledComponent(new JBLabel("Target Language:"), targetLangComboBox).addComponent(streamStatus);
+        fb.addLabeledComponent(new JBLabel("Target Language:"), targetLangComboBox).addComponent(streamStatus)
+                .addComponent(automateClearConsoleStatus);
 
         TitledSeparator titledSeparator = new TitledSeparator("");
         fb.addComponent(titledSeparator);
@@ -293,6 +295,13 @@ public class AppSettingsComponent extends JPanel {
 
     public void setStreamStatus(boolean enable) {
         streamStatus.setSelected(enable);
+    }
+
+    public boolean getAutomateClearConsoleStatus() {
+        return automateClearConsoleStatus.isSelected();
+    }
+    public void setAutomateClearConsoleStatus(boolean enable) {
+        automateClearConsoleStatus.setSelected(enable);
     }
 
     // ======== bailian settings

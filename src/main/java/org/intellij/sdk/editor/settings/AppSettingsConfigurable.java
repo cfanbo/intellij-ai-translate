@@ -61,6 +61,7 @@ final class AppSettingsConfigurable implements Configurable {
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         return !appSettingsComponent.getProvider().equals(state.provider) ||
                 appSettingsComponent.getStreamStatus() != state.streamStatus ||
+                appSettingsComponent.getAutomateClearConsoleStatus() != state.automateClearConsoleStatus ||
                 !appSettingsComponent.getAppId().equals(appId) ||
                 !appSettingsComponent.getAppKey().equals(appKey) ||
                 !appSettingsComponent.getTargetLang().equals(state.targetLanguage) ||
@@ -75,6 +76,7 @@ final class AppSettingsConfigurable implements Configurable {
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         state.provider = appSettingsComponent.getProvider();
         state.streamStatus = appSettingsComponent.getStreamStatus();
+        state.automateClearConsoleStatus = appSettingsComponent.getAutomateClearConsoleStatus();
 //        state.appId = appSettingsComponent.getAppId();
 //        state.appKey = appSettingsComponent.getAppKey();
 //
@@ -112,6 +114,7 @@ final class AppSettingsConfigurable implements Configurable {
                 Objects.requireNonNull(AppSettings.getInstance().getState());
         appSettingsComponent.setProvider(state.provider);
         appSettingsComponent.setStreamStatus(state.streamStatus);
+        appSettingsComponent.setAutomateClearConsoleStatus(state.automateClearConsoleStatus);
         appSettingsComponent.setAppId(appId);
         appSettingsComponent.setAppKey(appKey);
 

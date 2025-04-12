@@ -48,6 +48,9 @@ public class TranslateIllustrationAction extends AnAction {
 
         try {
             LLmService llm = LLmFactory.getInstance(config);
+            if (config.automateClearConsoleStatus) {
+                Helper.clearConsole();
+            }
             llm.callAgentApp(input);
         } catch (ConfigurationException configErr) {
             System.out.println(configErr.getMessage());

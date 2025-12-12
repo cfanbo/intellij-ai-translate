@@ -8,8 +8,14 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    labels:
+      - "automerge"
+      - "dependencies"      
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+    labels:
+      - "automerge"
+      - "dependencies"

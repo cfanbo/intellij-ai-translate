@@ -38,7 +38,7 @@ dependencies {
     implementation("org.apache.httpcomponents.client5:httpclient5:5.5.1")
     implementation("com.alibaba:fastjson:2.0.60")
     implementation("com.deepl.api:deepl-java:1.14.0")
-    implementation("com.alibaba:dashscope-sdk-java:2.22.3")
+    implementation("com.alibaba:dashscope-sdk-java:2.22.4")
     testImplementation(libs.junit)
 
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html

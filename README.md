@@ -12,9 +12,11 @@
 
 <!-- Plugin description -->
 
+This is an intelligent translation assistant for software developers, powered by Large Language Model (LLM) technology.
+
 这是一款基于LLM的编程开发者翻译助手。旨在帮助开发人员快速将英文翻译成中文，且保持软件开发专业术语语义。
 
-选择英文注释段落，按 Ctrl+Alt+T 即可翻译，也可以选择要翻译的段落，右键选择“AI 翻译“ 菜单翻译。
+选择英文注释段落，按 Ctrl+Alt+T 即可翻译，也可以选择要翻译的段落，右键选择"AI 翻译" 菜单翻译。
 
 项目主页：https://github.com/cfanbo/intellij-ai-translate<br/>
 <!-- Plugin description end -->
